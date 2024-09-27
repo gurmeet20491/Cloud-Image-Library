@@ -1,8 +1,8 @@
 const { app } = require(".");
 const mongoose = require("mongoose")
 
-const PORT = process.env.PORT || 9000;
-const MONGO_URL = process.env.MONGO_URL
+const PORT = "Your PORT number" //process.env.PORT || 9000;
+const MONGO_URL = "Your Mongo URL" //process.env.MONGO_URL
 
 if (!MONGO_URL) {
     console.error("MONGO_URL is not defined. Please check your environment variables.");

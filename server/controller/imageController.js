@@ -4,18 +4,10 @@ const fs = require("fs")
 // Cloudinary configuration
 
 cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
+    cloud_name: "Your Cloudinary Cloud Name" ,//process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: "Your Cloudinary Cloud API KEY" ,//process.env.CLOUDINARY_API_KEY,
+    api_secret: "Your Cloudinary Cloud API SECRET" ,//process.env.CLOUDINARY_API_SECRET,
 });
-
-const deleteImage = async(filePath)=>{
-    if(fs.existsSync(filePath)){
-        fs.unlink(filePath, error=>{
-            if(error) console.log(error.message)
-        })
-    }
-}
 
 // GET ALL IMAGES
 exports.getImages = async(req,res)=>{
@@ -55,7 +47,6 @@ exports.uploadImage = async(req,res)=>{
             });
         }).end(req.file.buffer); 
     }catch(err){
-        // if(req?.file?.path) deleteImage(req.file.path)
         res.status(500).json({
             status: "fail",
             error : err.message
